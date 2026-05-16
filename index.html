@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundación ANDA — Hogar Centro de Vida</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER — Logo, nombre y navegación
+     UPDATE: reemplaza img/logo.png con tu imagen del logo
+     ============================================================ -->
+<header>
+    <div class="header-top">
+        <div class="header-brand">
+            <!-- UPDATE: coloca aquí tu imagen del logo -->
+            <img src="img/logo.png" alt="Logo Fundación ANDA" class="header-logo" />
+            <div class="header-titles">
+                <h1 class="brand-name">
+                    Fundación en Defensa del Anciano <span class="highlight">"ANDA"</span>
+                </h1>
+                <p class="brand-subtitle">Hogar Centro de Vida</p>
+                <p class="brand-nit">NIT: 802.002.058-5</p>
+                <p class="brand-slogan">
+                    Con el paso de los años nos vamos haciendo débiles, "volvemos a ser niños"
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="equipo.html">Equipo</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="apadrine.html">Apadrine</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+
+<!-- ============================================================
+     HERO — Bienvenida principal
+     UPDATE: puedes agregar una imagen de fondo en style.css
+     (busca "hero::before" y descomenta la línea de background)
+     ============================================================ -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">Barranquilla, Colombia — Desde 1988</span>
+        <h2>Dignificando la vida<br>del adulto mayor</h2>
+        <p>
+            Más de 35 años acompañando a los abuelos y abuelas de Ciudad Modesto
+            con amor, alimentación, salud y esparcimiento.
+        </p>
+        <div class="hero-buttons">
+            <a href="apadrine.html" class="btn btn-white">
+                <i class="fa-solid fa-heart"></i> Quiero apoyar
+            </a>
+            <a href="#quienes-somos" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:white;">
+                <i class="fa-solid fa-circle-info"></i> Conoce más
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN: ¿QUÉ ES ANDA? — con ver más / ver menos
+     ============================================================ -->
+<section class="content-section" id="quienes-somos">
+    <div class="content-box">
+        <h2>¿Qué es la Fundación ANDA?</h2>
+
+        <!-- Texto breve visible siempre -->
+        <p class="content-excerpt">
+            La <strong>Fundación en Defensa del Anciano "ANDA"</strong> es una entidad sin ánimo
+            de lucro. Es un hogar de paso donde personas mayores asisten de lunes a viernes,
+            recibiendo alimentación, atención básica en salud, esparcimiento y talleres —
+            siendo tratados con amor y tolerancia.
+        </p>
+
+        <!-- Contenido extra que aparece al hacer clic en "Ver más" -->
+        <div id="anda-extra" class="content-full hidden">
+
+            <p><strong>¿Qué es un Centro de Vida?</strong></p>
+            <p>
+                Un Centro de Vida es una casa o sede donde el adulto mayor permanece durante el
+                día. Es una organización centrada en el desarrollo social con programas de atención
+                integral: alimentación, salud, recreación, educación y talleres ocupacionales.
+            </p>
+
+            <p><strong>¿A qué se dedica la Fundación ANDA?</strong></p>
+            <p>
+                La Fundación ANDA trabaja por la dignificación del adulto mayor del barrio
+                Ciudad Modesto y sectores aledaños en el Suroccidente de Barranquilla, desde hace
+                más de 35 años, sin dejar de trabajar un solo día por la comunidad.
+            </p>
+
+            <p><strong>¿A quién beneficia?</strong></p>
+            <p>
+                Beneficia a más de 100 abuelos y abuelas desprotegidos, de escasos recursos
+                y enfermos del barrio Ciudad Modesto y sus alrededores.
+            </p>
+        </div>
+
+        <div class="content-actions">
+            <button class="btn-toggle" onclick="toggleContent(this, 'anda-extra')">
+                <i class="fa-solid fa-chevron-down"></i> Ver más
+            </button>
+            <a href="quienes-somos.html" class="btn btn-primary">
+                <i class="fa-solid fa-arrow-right"></i> Quiénes Somos
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN: JUSTIFICACIÓN — con ver más / ver menos
+     ============================================================ -->
+<section class="content-section bg-light">
+    <div class="content-box">
+        <h2>¿Por qué existimos?</h2>
+
+        <p class="content-excerpt">
+            El adulto mayor de nuestro sector vive en una zona marginada de la ciudad,
+            en su mayoría de estrato 1. Son personas entre 60 y 95 años, desprotegidas
+            y en muchos casos abandonadas, que no cuentan con apoyo familiar ni recursos
+            suficientes.
+        </p>
+
+        <div id="justificacion-extra" class="content-full hidden">
+            <p>
+                Muchos de ellos son personas activas, con capacidades para realizar labores
+                productivas y manualidades. Pero al no contar con los recursos necesarios,
+                se crean sentimientos de impotencia y desánimo.
+            </p>
+            <p>
+                La Fundación ANDA cuenta actualmente con más de 100 abuelos beneficiarios.
+                El programa de alimentación (almuerzo) beneficia a 80 adultos mayores de lunes
+                a viernes, y otros participan en los programas de salud y recreación.
+            </p>
+        </div>
+
+        <div class="content-actions">
+            <button class="btn-toggle" onclick="toggleContent(this, 'justificacion-extra')">
+                <i class="fa-solid fa-chevron-down"></i> Ver más
+            </button>
+            <a href="historia.html" class="btn btn-primary">
+                <i class="fa-solid fa-arrow-right"></i> Nuestra Historia
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     CARDS DE PÁGINAS — Navegación visual al resto del sitio
+     ============================================================ -->
+<section class="page-cards-section">
+    <div class="section-header">
+        <h2>Conoce la Fundación</h2>
+        <div class="section-divider"></div>
+        <p>Descubre todo lo que hacemos por nuestros abuelos y cómo puedes ser parte de esta labor.</p>
+    </div>
+
+    <div class="page-cards-grid">
+
+        <!-- Card: Quiénes Somos -->
+        <div class="page-card">
+            <div class="page-card-icon"><i class="fa-solid fa-people-group"></i></div>
+            <h3>Quiénes Somos</h3>
+            <p>
+                Nuestra misión, visión, filosofía y los valores que guían cada acción de la Fundación.
+            </p>
+            <!-- Texto extra que aparece con Ver más -->
+            <div id="card-quienes" class="content-full hidden">
+                <p style="font-size:13.5px;margin-top:8px;">
+                    Conoce nuestros objetivos, la filosofía de atención personalizada y humana,
+                    y los 7 valores que definen nuestra forma de trabajar: amor, respeto,
+                    tolerancia, igualdad, dedicación, solidaridad y generosidad.
+                </p>
+            </div>
+            <div class="page-card-actions">
+                <button class="btn-toggle" onclick="toggleContent(this, 'card-quienes')">
+                    <i class="fa-solid fa-chevron-down"></i> Ver más
+                </button>
+                <a href="quienes-somos.html" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-right"></i> Ir a la página
+                </a>
+            </div>
+        </div>
+
+        <!-- Card: Historia -->
+        <div class="page-card">
+            <div class="page-card-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <h3>Historia</h3>
+            <p>
+                Más de 35 años de lucha y dedicación por los adultos mayores de Barranquilla.
+            </p>
+            <div id="card-historia" class="content-full hidden">
+                <p style="font-size:13.5px;margin-top:8px;">
+                    Todo comenzó en octubre de 1988, cuando 9 mujeres del barrio La Manga y
+                    Ciudad Modesto decidieron organizarse para proteger a los ancianos de su sector.
+                    Desde entonces, la Fundación no ha cerrado sus puertas ni un solo día.
+                </p>
+            </div>
+            <div class="page-card-actions">
+                <button class="btn-toggle" onclick="toggleContent(this, 'card-historia')">
+                    <i class="fa-solid fa-chevron-down"></i> Ver más
+                </button>
+                <a href="historia.html" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-right"></i> Ir a la página
+                </a>
+            </div>
+        </div>
+
+        <!-- Card: Equipo -->
+        <div class="page-card">
+            <div class="page-card-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
+            <h3>Equipo de Trabajo</h3>
+            <p>
+                15 voluntarios diarios que dedican su tiempo y corazón al bienestar de los abuelos.
+            </p>
+            <div id="card-equipo" class="content-full hidden">
+                <p style="font-size:13.5px;margin-top:8px;">
+                    Contamos con voluntarios en áreas administrativas, directivas y de coordinación
+                    de actividades. Además de colaboradores externos que aportan en especie,
+                    servicios profesionales y financiamiento.
+                </p>
+            </div>
+            <div class="page-card-actions">
+                <button class="btn-toggle" onclick="toggleContent(this, 'card-equipo')">
+                    <i class="fa-solid fa-chevron-down"></i> Ver más
+                </button>
+                <a href="equipo.html" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-right"></i> Ir a la página
+                </a>
+            </div>
+        </div>
+
+        <!-- Card: Actividades -->
+        <div class="page-card">
+            <div class="page-card-icon"><i class="fa-solid fa-star"></i></div>
+            <h3>Actividades</h3>
+            <p>
+                Programas de alimentación, salud, educación, recreación y ocio productivo
+                de lunes a viernes.
+            </p>
+            <div id="card-actividades" class="content-full hidden">
+                <p style="font-size:13.5px;margin-top:8px;">
+                    Los abuelos reciben almuerzos diarios, atención en salud, clases de
+                    alfabetización, actividades físicas y talleres de manualidades donde crean
+                    tapetes y otros artículos, manteniéndose activos y con propósito.
+                </p>
+            </div>
+            <div class="page-card-actions">
+                <button class="btn-toggle" onclick="toggleContent(this, 'card-actividades')">
+                    <i class="fa-solid fa-chevron-down"></i> Ver más
+                </button>
+                <a href="actividades.html" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-right"></i> Ir a la página
+                </a>
+            </div>
+        </div>
+
+        <!-- Card: Apadrine -->
+        <div class="page-card">
+            <div class="page-card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <h3>Apadrine un Anciano</h3>
+            <p>
+                Conviértete en padrino o madrina de uno de nuestros abuelos con un aporte
+                mensual desde $50.000.
+            </p>
+            <div id="card-apadrine" class="content-full hidden">
+                <p style="font-size:13.5px;margin-top:8px;">
+                    Tu contribución puede ser en efectivo o en especie. Puedes consignar
+                    en la cuenta Colpatria No. 1000226983 a nombre de la Fundación ANDA,
+                    o contactarnos directamente. Como padrino, podrás visitar a tu ahijado
+                    en eventos especiales.
+                </p>
+            </div>
+            <div class="page-card-actions">
+                <button class="btn-toggle" onclick="toggleContent(this, 'card-apadrine')">
+                    <i class="fa-solid fa-chevron-down"></i> Ver más
+                </button>
+                <a href="apadrine.html" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-right"></i> Ir a la página
+                </a>
+            </div>
+        </div>
+
+        <!-- Card: Certificación -->
+        <div class="page-card">
+            <div class="page-card-icon"><i class="fa-solid fa-certificate"></i></div>
+            <h3>Certificación</h3>
+            <p>
+                Las empresas que nos apoyan pueden acceder a beneficios tributarios según
+                la Ley Colombiana.
+            </p>
+            <div id="card-cert" class="content-full hidden">
+                <p style="font-size:13.5px;margin-top:8px;">
+                    La Fundación ANDA está autorizada para certificar donaciones de empresas
+                    y compañías, permitiéndoles acceder a descuentos sobre las rentas establecidos
+                    por la legislación colombiana vigente.
+                </p>
+            </div>
+            <div class="page-card-actions">
+                <button class="btn-toggle" onclick="toggleContent(this, 'card-cert')">
+                    <i class="fa-solid fa-chevron-down"></i> Ver más
+                </button>
+                <a href="apadrine.html#certificacion" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-right"></i> Más información
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN: ¿QUIERES UNIRTE?
+     UPDATE: reemplaza el número de WhatsApp si cambia
+     ============================================================ -->
+<section class="join-section">
+    <h2>¿Quieres unirte a nuestra causa?</h2>
+    <p>
+        Personas, familias y empresas pueden marcar una diferencia en la vida de nuestros
+        abuelos. Cada aporte, grande o pequeño, transforma vidas.
+    </p>
+    <div class="join-buttons">
+        <!-- UPDATE: reemplaza el número en el link de WhatsApp -->
+        <a href="https://wa.me/573006465727?text=Hola,%20quiero%20apoyar%20a%20la%20Fundaci%C3%B3n%20ANDA"
+           class="btn btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
+        </a>
+        <a href="apadrine.html" class="btn btn-white">
+            <i class="fa-solid fa-heart"></i> Ver cómo donar
+        </a>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     UPDATE: reemplaza los links de Facebook e Instagram
+     ============================================================ -->
+<footer>
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+            <p class="footer-brand-name">Fundación ANDA</p>
+            <p>Hogar Centro de Vida</p>
+            <p>NIT: 802.002.058-5</p>
+            <p class="footer-slogan">
+                "Con el paso de los años nos vamos haciendo débiles, volvemos a ser niños"
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Páginas</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="equipo.html">Equipo</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="apadrine.html">Apadrine</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contacto</h4>
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>300 646 5727<br>323 333 9106</span>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>fundacionanda@hotmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Calle 99D #14A-84<br>Barrio La Paz<br>Barranquilla, Colombia</span>
+            </div>
+            <!-- UPDATE: reemplaza # por tus links reales de redes sociales -->
+            <div class="social-links">
+                <a href="#" class="social-link" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/573006465727" class="social-link" target="_blank" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Fundación en Defensa del Anciano "ANDA". Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+<!-- ============================================================
+     BOTÓN FLOTANTE DE WHATSAPP
+     UPDATE: reemplaza el número si cambia
+     ============================================================ -->
+<a href="https://wa.me/573006465727?text=Hola,%20quiero%20saber%20c%C3%B3mo%20apoyar%20a%20la%20Fundaci%C3%B3n%20ANDA"
+   class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+<script src="app.js"></script>
+</body>
+</html>
