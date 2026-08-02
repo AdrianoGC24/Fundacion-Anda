@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipo — Fundación ANDA</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+    <div class="header-top">
+        <div class="header-brand">
+            <img src="logo/logo_fondo_blanco.png" alt="Logo Fundación ANDA" class="header-logo" />
+            <div class="header-titles">
+                <h1 class="brand-name">Fundación ANDA</h1>
+                <p class="brand-subtitle">Hogar Centro de Vida</p>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                    <li><a href="equipo.html" class="active">Equipo</a></li>
+                    <li><a href="actividades.html">Actividades</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="apadrine.html">Apadrine</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<!-- ========== BANNER ========== -->
+<section class="page-banner">
+    <h1>Equipo de Trabajo</h1>
+    <p>Las personas que cada día hacen posible nuestra labor — todos voluntarios</p>
+</section>
+
+
+<!-- ========== INTRO ========== -->
+<section class="content-section">
+    <div class="container">
+        <div class="info-block" style="text-align:center; border-left:none; border-top:5px solid var(--green-primary);">
+            <p style="font-size:16px; max-width:620px; margin:0 auto;">
+                <strong>15 personas</strong> trabajan en la Fundación diariamente en diferentes áreas,
+                de manera voluntaria y con un compromiso admirable. Gracias a ellas, los abuelos
+                reciben atención continua y de calidad.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== ÁREA DIRECTIVA ========== -->
+<section class="content-section bg-light">
+    <div class="container">
+
+        <p class="team-section-title">
+            <i class="fa-solid fa-crown" style="color:var(--green-primary);margin-right:8px;"></i>
+            Área Directiva
+        </p>
+
+        <!--
+            UPDATE: Para agregar un miembro del equipo:
+            1. Copia un bloque <div class="team-card">...</div>
+            2. Pega la foto en la carpeta img/equipo/
+            3. Reemplaza el nombre, rol y descripción
+            4. En .team-photo, cambia el emoji por:
+               <img src="img/equipo/nombre-foto.jpg" alt="Nombre">
+        -->
+        <div class="team-grid">
+
+            <div class="team-card">
+                <div class="team-photo">
+                    <!-- UPDATE: <img src="img/equipo/elvia-escobar.jpg" alt="Elvia Escobar"> -->
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Elvia Escobar Acosta</h4>
+                    <p class="team-role">Representante Legal</p>
+                    <!-- UPDATE: agrega una descripción breve -->
+                    <p>Fundadora y líder de la Fundación ANDA desde sus inicios en 1988.</p>
+                </div>
+            </div>
+
+            <!-- UPDATE: agrega más miembros directivos aquí -->
+            <div class="team-card">
+                <div class="team-photo">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nombre del Directivo</h4>
+                    <p class="team-role">Cargo directivo</p>
+                    <p>Breve descripción del rol y contribución a la Fundación.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nombre del Directivo</h4>
+                    <p class="team-role">Cargo directivo</p>
+                    <p>Breve descripción del rol y contribución a la Fundación.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== ÁREA ADMINISTRATIVA ========== -->
+<section class="content-section">
+    <div class="container">
+
+        <p class="team-section-title">
+            <i class="fa-solid fa-briefcase" style="color:var(--green-primary);margin-right:8px;"></i>
+            Área Administrativa
+        </p>
+
+        <div class="team-grid">
+
+            <div class="team-card">
+                <div class="team-photo">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nombre del Voluntario</h4>
+                    <p class="team-role">Contaduría</p>
+                    <p>Profesional en contaduría que apoya la gestión financiera de la Fundación.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nombre del Voluntario</h4>
+                    <p class="team-role">Comunicación Social</p>
+                    <p>Apoya la comunicación y visibilidad de la Fundación en medios y redes.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nombre del Voluntario</h4>
+                    <p class="team-role">Administración</p>
+                    <p>Gestiona los recursos y procesos internos del día a día de la Fundación.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== COORDINACIÓN DE ACTIVIDADES ========== -->
+<section class="content-section bg-light">
+    <div class="container">
+
+        <p class="team-section-title">
+            <i class="fa-solid fa-calendar-check" style="color:var(--green-primary);margin-right:8px;"></i>
+            Coordinación de Actividades
+        </p>
+
+        <div class="team-grid">
+
+            <div class="team-card">
+                <div class="team-photo">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nombre del Voluntario</h4>
+                    <p class="team-role">Docente Voluntario</p>
+                    <p>Apoya los programas de alfabetización y educación para los abuelos.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nombre del Voluntario</h4>
+                    <p class="team-role">Recreación y Deportes</p>
+                    <p>Coordina las actividades físicas, juegos y celebraciones especiales.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Agregar foto</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nombre del Voluntario</h4>
+                    <p class="team-role">Talleres de Manualidades</p>
+                    <p>Guía los talleres de ocio productivo: tapetes, costura y otras actividades.</p>
+                </div>
+            </div>
+
+            <!-- UPDATE: agrega más voluntarios de coordinación copiando el bloque -->
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== COLABORADORES ========== -->
+<section class="content-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Colaboradores</h2>
+            <div class="section-divider"></div>
+            <p>Personas y organizaciones que generosamente apoyan nuestra labor.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:25px;">
+
+            <div class="info-block">
+                <h3><span class="block-icon">🤝</span> En Especie</h3>
+                <ul>
+                    <li>Padre Ciyrilo Swinne</li>
+                    <li>Banco de Occidente — Fondo de Empleados (donación en diciembre)</li>
+                    <li>Varias empresas que apoyan mensualmente con alimentos no perecederos</li>
+                    <li>Fundación Senderos de Paz — almuerzos el último domingo de cada mes
+                        y aportes en época de navidad</li>
+                </ul>
+            </div>
+
+            <div class="info-block">
+                <h3><span class="block-icon">💛</span> Proyecto Apadrine</h3>
+                <ul>
+                    <!-- UPDATE: actualiza la lista de padrinos activos -->
+                    <li>Familia Pinilla Abuchaibe</li>
+                    <li>Familia Vengal Insignares</li>
+                    <li>Familia Galvis del Verchior</li>
+                    <li>Paola Cruz</li>
+                    <li>Familia Solano</li>
+                    <li>Fernando Hadad</li>
+                    <li>Angélica Pérez</li>
+                    <li>Empresas: Proveedor Naval y Grescaribe</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== CTA VOLUNTARIO ========== -->
+<section class="join-section">
+    <h2>¿Quieres ser voluntario?</h2>
+    <p>
+        Tu tiempo y talento pueden transformar la vida de un abuelo. Escríbenos y
+        cuéntanos cómo quieres colaborar.
+    </p>
+    <div class="join-buttons">
+        <a href="https://wa.me/573006465727?text=Hola,%20quiero%20ser%20voluntario%20en%20la%20Fundaci%C3%B3n%20ANDA"
+           class="btn btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Quiero ser voluntario
+        </a>
+        <a href="apadrine.html" class="btn btn-white">
+            <i class="fa-solid fa-heart"></i> Ser padrino
+        </a>
+    </div>
+</section>
+
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <p class="footer-brand-name">Fundación ANDA</p>
+            <p>Hogar Centro de Vida · NIT: 802.002.058-5</p>
+            <p class="footer-slogan">"Con el paso de los años nos vamos haciendo débiles, volvemos a ser niños"</p>
+        </div>
+        <div class="footer-col">
+            <h4>Páginas</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="equipo.html">Equipo</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="apadrine.html">Apadrine</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contacto</h4>
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>300 646 5727 · 323 333 9106</span>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>fundacionanda@hotmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Calle 99D #14A-84, Barrio La Paz, Barranquilla</span>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/573006465727" class="social-link" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Fundación en Defensa del Anciano "ANDA". Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/573006465727" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="app.js"></script>
+</body>
+</html>
