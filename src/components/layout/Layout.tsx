@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 import { Navbar } from "@/components/layout/Navbar";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
@@ -9,7 +9,7 @@ import { whatsapp } from "@/data/contact";
 import { sections } from "@/data/sections";
 
 export function Layout() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const normalizedPath = pathname.replace(/\/$/, "") || "/";
   const section = sections.find(({ path }) => path === normalizedPath);
 
@@ -21,9 +21,12 @@ export function Layout() {
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <a className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-40 focus:rounded-md focus:bg-white focus:p-3" href="#contenido-principal">
+      <Link
+        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-40 focus:rounded-md focus:bg-white focus:p-3"
+        to={{ search, hash: "#contenido-principal" }}
+      >
         Saltar al contenido
-      </a>
+      </Link>
       <ScrollToTop />
       <Navbar />
       <main className="flex-1" id="contenido-principal" tabIndex={-1}>

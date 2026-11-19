@@ -102,7 +102,7 @@ export function Equipo() {
             {people.map(({ name, role, description }) => (
               <Panel key={role}>
                 <h3 className="mb-2 text-2xl font-bold text-anda-wine-dark">{name ?? role}</h3>
-                {name && <p className="mb-1 font-bold text-anda-wine">{role}</p>}
+                {name && <p className="mb-1 font-semibold text-anda-wine">{role}</p>}
                 <p>{description}</p>
               </Panel>
             ))}

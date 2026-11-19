@@ -79,7 +79,7 @@ export function Actividades() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map(({ title, description, items, photo }) => (
             <article className="overflow-hidden rounded-2xl border border-anda-border bg-white shadow-sm" key={title}>
-              <img alt="" className="aspect-video w-full object-cover" loading="lazy" src={activityPhotos[photo].src} />
+              <img alt={activityPhotos[photo].alt} className="aspect-video w-full object-cover" loading="lazy" src={activityPhotos[photo].src} />
               <div className="prose-copy p-5 sm:p-6">
                 <h3 className="text-2xl font-bold text-anda-wine-dark">{title}</h3>
                 <p>{description}</p>

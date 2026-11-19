@@ -7,7 +7,7 @@ export function ContactDetails() {
   return (
     <Panel className="grid gap-5 md:grid-cols-[1fr_1.2fr] md:gap-8">
       <div>
-        <p className="font-serif text-xl font-bold text-anda-wine-dark">{organization.name}</p>
+        <p className="font-heading text-xl font-bold text-anda-wine-dark">{organization.name}</p>
         <p>{organization.subtitle} · NIT: {organization.nit}</p>
         <p className="mt-3 italic text-muted-foreground">«{organization.slogan}»</p>
       </div>

@@ -4,16 +4,12 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  root: fileURLToPath(new URL("./src", import.meta.url)),
-  publicDir: fileURLToPath(new URL("./public", import.meta.url)),
+  // Para un dominio personalizado en la raíz, usa base: "/".
+  base: "/Fundacion-Anda/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
-  },
-  build: {
-    outDir: "../dist",
-    emptyOutDir: true,
   },
 });

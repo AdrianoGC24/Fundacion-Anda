@@ -9,6 +9,7 @@ export type Testimonial = {
   name: string;
   designation: string;
   src: string;
+  alt?: string;
 };
 
 type TestimonialColors = {
@@ -101,10 +102,9 @@ function TestimonialsCarousel({
       style={palette}
     >
       <div
-        aria-hidden="true"
         className="relative mx-auto aspect-[5/4] w-full max-w-[28rem] [perspective:1000px]"
       >
-        {testimonials.map(({ src }, cardIndex) => {
+        {testimonials.map(({ src, alt }, cardIndex) => {
           const position = cardPosition(cardIndex, activeIndex, count);
           const visible = position !== 2;
           const front = position === 0;
@@ -113,7 +113,8 @@ function TestimonialsCarousel({
           return (
             <motion.img
               key={`${cardIndex}-${src}`}
-              alt=""
+              alt={alt ?? "Fotografía ilustrativa del testimonio"}
+              aria-hidden={!front}
               animate={{
                 x: `${side * 25}%`,
                 scale: front ? 1 : visible ? 0.85 : 0.74,
@@ -173,7 +174,7 @@ function TestimonialsCarousel({
             </button>
             {canAutoplay && (
               <button
-                className="min-h-11 cursor-pointer rounded-sm px-1 text-sm font-bold text-(--testimonial-name) underline underline-offset-4"
+                className="min-h-11 cursor-pointer rounded-sm px-1 text-sm font-semibold text-(--testimonial-name) underline underline-offset-4"
                 onClick={() => setPaused((current) => !current)}
                 type="button"
               >

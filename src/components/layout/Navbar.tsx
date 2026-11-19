@@ -1,5 +1,5 @@
 import { Heart, Menu, X } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { container } from "@/components/content";
@@ -13,9 +13,24 @@ export function Navbar() {
   const [openForLocation, setOpenForLocation] = useState<string>();
   const opened = openForLocation === key;
   const toggle = useRef<HTMLButtonElement>(null);
+  const header = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!opened) return;
+
+    function closeOnOutsidePress(event: PointerEvent) {
+      if (event.target instanceof Node && !header.current?.contains(event.target)) {
+        setOpenForLocation(undefined);
+      }
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsidePress);
+    return () => document.removeEventListener("pointerdown", closeOnOutsidePress);
+  }, [opened]);
 
   return (
     <header
+      ref={header}
       className="sticky top-0 z-30 border-b border-anda-border bg-white shadow-sm"
       onKeyDown={(event) => {
         if (opened && event.key === "Escape") {
@@ -25,11 +40,11 @@ export function Navbar() {
       }}
     >
       <div className={cn(container, "flex min-h-[4.75rem] flex-wrap items-center justify-between gap-x-4 py-2 lg:flex-nowrap")}>
-        <Link className="flex items-center gap-2.5 rounded-sm" onClick={() => setOpenForLocation(undefined)} to="/">
-          <img alt="" className="size-11 rounded-full border border-anda-border bg-white object-contain sm:size-12" src={logo} />
+        <Link aria-label="Fundación ANDA Hogar Centro de Vida, inicio" className="flex items-center gap-2.5 rounded-sm" onClick={() => setOpenForLocation(undefined)} to="/">
+          <img alt={logo.alt} className="size-11 rounded-full border border-anda-border bg-white object-contain sm:size-12" height={48} src={logo.src} width={48} />
           <span className="flex flex-col leading-tight">
-            <span className="font-serif text-lg font-bold whitespace-nowrap text-anda-wine-dark sm:text-xl">{organization.shortName}</span>
-            <span className="text-sm font-bold text-muted-foreground">{organization.subtitle}</span>
+            <span className="font-heading text-lg font-bold whitespace-nowrap text-anda-wine-dark sm:text-xl">{organization.shortName}</span>
+            <span className="text-sm font-semibold text-muted-foreground">{organization.subtitle}</span>
           </span>
         </Link>
         <button
@@ -55,7 +70,7 @@ export function Navbar() {
               end
               onClick={() => setOpenForLocation(undefined)}
               className={({ isActive }) => cn(
-                "inline-flex min-h-11 items-center justify-start gap-2 rounded-full px-3 py-2 text-base leading-tight font-bold whitespace-nowrap xl:px-4",
+                "inline-flex min-h-11 items-center justify-start gap-2 rounded-full px-3 py-2 text-base leading-tight font-semibold whitespace-nowrap focus-visible:-outline-offset-2 xl:px-4",
                 path === "/apadrine"
                   ? cn("mt-1 justify-center bg-anda-wine px-5 text-white hover:bg-anda-wine-dark lg:mt-0 lg:ml-2", isActive && "bg-anda-wine-dark underline underline-offset-4")
                   : isActive ? "bg-anda-rose-pale text-anda-wine" : "text-foreground hover:bg-anda-rose-pale",

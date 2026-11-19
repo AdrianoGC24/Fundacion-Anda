@@ -11,6 +11,7 @@ export function ScrollToTop() {
 
     const target = hash && document.getElementById(hash.slice(1));
     if (target) {
+      target.focus({ preventScroll: true });
       target.scrollIntoView({ block: "start", behavior: "instant" });
       return;
     }

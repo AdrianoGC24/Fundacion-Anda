@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { container } from "@/components/content";
 import { organization, whatsapp } from "@/data/contact";
-import { activityImages, logo } from "@/data/media";
+import { activityPhotos, logo } from "@/data/media";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -28,7 +28,7 @@ const navigation = [
 
 const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${organization.address}, Colombia`)}`;
 const footerLink = "inline-block rounded-sm py-1 leading-snug text-anda-wine-dark underline-offset-4 hover:underline focus-visible:underline";
-const columnHeading = "mb-2 font-sans text-base font-bold text-anda-wine-dark";
+const columnHeading = "mb-2 text-base font-semibold tracking-normal text-anda-wine-dark";
 
 function requestSubscription(event: FormEvent<HTMLFormElement>) {
   event.preventDefault();
@@ -48,7 +48,7 @@ function Newsletter() {
             Recibe noticias sobre nuestras actividades y formas de apoyar.
           </p>
           <form className="mt-5" onSubmit={requestSubscription}>
-            <label className="mb-1 block font-bold" htmlFor="correo-novedades">Correo electrónico</label>
+            <label className="mb-1 block font-semibold" htmlFor="correo-novedades">Correo electrónico</label>
             <div className="flex flex-col gap-2 sm:flex-row">
               <input
                 aria-describedby="envio-novedades"
@@ -59,7 +59,7 @@ function Newsletter() {
                 required
                 type="email"
               />
-              <button className="min-h-12 cursor-pointer rounded-lg bg-anda-rose-pale px-5 font-bold text-anda-wine-dark hover:bg-anda-rose-soft focus-visible:outline-white" type="submit">
+              <button className="min-h-12 cursor-pointer rounded-lg bg-anda-rose-pale px-5 font-semibold text-anda-wine-dark hover:bg-anda-rose-soft focus-visible:outline-white" type="submit">
                 Solicitar suscripción
               </button>
             </div>
@@ -70,10 +70,10 @@ function Newsletter() {
         </div>
         <div className="mx-auto w-full max-w-80 px-4 py-2">
           <img
-            alt="Participantes de una actividad al aire libre de la Fundación ANDA"
+            alt={activityPhotos[6].alt}
             className="aspect-[16/10] w-full rotate-4 rounded-2xl border-4 border-anda-rose-pale object-cover shadow-xl"
             loading="lazy"
-            src={activityImages[6]}
+            src={activityPhotos[6].src}
           />
         </div>
       </div>
@@ -88,9 +88,9 @@ export function FooterColumn() {
       <div className={cn(container, "pt-10 sm:pt-12")}>
         <div className="grid gap-8 pb-9 lg:grid-cols-3 lg:gap-10">
           <div className="max-w-sm">
-            <Link className="inline-flex items-center gap-3 rounded-sm text-anda-wine-dark" to="/">
-              <img alt="" className="size-14 shrink-0 rounded-full bg-white object-contain" height={56} loading="lazy" src={logo} width={56} />
-              <span className="font-serif text-lg leading-snug font-bold">{organization.name}</span>
+            <Link aria-label={organization.name + ", inicio"} className="inline-flex items-center gap-3 rounded-sm text-anda-wine-dark" to="/">
+              <img alt={logo.alt} className="size-14 shrink-0 rounded-full bg-white object-contain" height={56} loading="lazy" src={logo.src} width={56} />
+              <span className="font-heading text-lg leading-snug font-bold">{organization.name}</span>
             </Link>
             <p className="mt-2">{organization.subtitle} · NIT {organization.nit}</p>
             <p className="mt-2 italic">«{organization.slogan}»</p>
@@ -149,7 +149,7 @@ export function FooterColumn() {
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-anda-wine/25 pt-4 pr-12 pb-6 text-sm text-anda-wine-dark">
           <p>© {new Date().getFullYear()} {organization.name}. Todos los derechos reservados.</p>
-          <a className="grid size-10 place-items-center rounded-full border border-anda-wine/30 hover:bg-white" aria-label="WhatsApp de Fundación ANDA" href={whatsapp()} rel="noopener noreferrer" target="_blank">
+          <a className="grid size-11 place-items-center rounded-full border border-anda-wine/30 hover:bg-white" aria-label="WhatsApp de Fundación ANDA" href={whatsapp()} rel="noopener noreferrer" target="_blank">
             <MessageCircle aria-hidden="true" size={19} />
           </a>
         </div>

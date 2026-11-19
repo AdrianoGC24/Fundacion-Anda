@@ -49,7 +49,7 @@ export function Apadrine() {
           {steps.map(({ title, description }, index) => (
             <li key={title}>
               <Panel className="h-full">
-                <span aria-hidden="true" className="mb-3 grid size-10 place-items-center rounded-full bg-anda-rose-pale font-bold text-anda-wine">
+                <span aria-hidden="true" className="mb-3 grid size-10 place-items-center rounded-full bg-anda-rose-pale font-semibold text-anda-wine">
                   {index + 1}
                 </span>
                 <h3 className="mb-2 text-2xl font-bold text-anda-wine-dark">{title}</h3>
@@ -85,7 +85,7 @@ export function Apadrine() {
                 materiales para talleres, etc.).
               </p>
               <div className="my-4 rounded-xl bg-anda-rose-pale p-4">
-                <p className="font-bold text-anda-wine-dark">{sponsorshipAccount.bank}</p>
+                <p className="font-semibold text-anda-wine-dark">{sponsorshipAccount.bank}</p>
                 <p>Cuenta de Ahorros No. <strong>{sponsorshipAccount.number}</strong></p>
                 <p>A nombre de: <strong>{sponsorshipAccount.holder}</strong></p>
               </div>
@@ -111,14 +111,14 @@ export function Apadrine() {
             </div>
           </Panel>
           <Panel className="md:col-span-2">
-            <div className="prose-copy" id="certificacion">
+            <div className="prose-copy" id="certificacion" tabIndex={-1}>
               <h3 className="text-2xl font-bold text-anda-wine-dark">Certificación para Empresas</h3>
               <p>
                 La Fundación ANDA está <strong>autorizada para certificar</strong> las donaciones de empresas y
                 compañías que nos apoyen. Esto les permite acceder a los <strong>beneficios tributarios</strong>
                 establecidos por la Ley Colombiana, a través de un descuento sobre las rentas.
               </p>
-              <p className="rounded-xl bg-anda-rose-pale p-4 font-bold text-anda-wine-dark">
+              <p className="rounded-xl bg-anda-rose-pale p-4 font-semibold text-anda-wine-dark">
                 Base legal: Ley Colombiana 1276 de 2009 y Ley 1251 de 2008
               </p>
               <p>

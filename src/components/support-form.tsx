@@ -31,33 +31,33 @@ export function SupportForm() {
   return (
     <Panel>
       <form className="grid min-w-0 gap-4 sm:grid-cols-2" onSubmit={openWhatsApp}>
-        <label className="grid gap-1 font-bold">
+        <label className="grid gap-1 font-semibold">
           Nombre completo
           <input autoComplete="name" className={field} name="name" required />
         </label>
-        <label className="grid gap-1 font-bold">
+        <label className="grid gap-1 font-semibold">
           Empresa (opcional)
           <input autoComplete="organization" className={field} name="company" />
         </label>
-        <label className="grid gap-1 font-bold">
+        <label className="grid gap-1 font-semibold">
           Teléfono
           <input autoComplete="tel" className={field} name="phone" required type="tel" />
         </label>
-        <label className="grid gap-1 font-bold">
+        <label className="grid gap-1 font-semibold">
           Tipo de ayuda
           <select className={field} defaultValue="" name="kind" required>
             <option disabled value="">Selecciona una opción</option>
             {helpTypes.map((kind) => <option key={kind}>{kind}</option>)}
           </select>
         </label>
-        <label className="grid gap-1 font-bold sm:col-span-2">
+        <label className="grid gap-1 font-semibold sm:col-span-2">
           Escribe tu mensaje
           <textarea className={field} name="message" rows={4} />
         </label>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:col-span-2">
           <button
             aria-describedby="ayuda-whatsapp"
-            className="min-h-12 cursor-pointer rounded-full bg-anda-wine px-5 py-2.5 font-bold text-white hover:bg-anda-wine-dark"
+            className="min-h-12 cursor-pointer rounded-full bg-anda-wine px-5 py-2.5 font-semibold text-white hover:bg-anda-wine-dark"
             type="submit"
           >
             Quiero ayudar
