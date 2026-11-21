@@ -4,7 +4,7 @@ import { ContactDetails } from "@/components/contact-details";
 import { ActionLink, Callout, Hero, Panel, Section } from "@/components/content";
 import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import { organization, sponsorshipAccount, whatsapp } from "@/data/contact";
-import { pageImages } from "@/data/media";
+import { activityPhotos, pageImages } from "@/data/media";
 import { testimonials, testimonialsNotice } from "@/data/testimonials";
 
 const steps = [
@@ -31,7 +31,7 @@ export function Apadrine() {
         image={pageImages.apadrine}
       />
 
-      <Section className="max-w-4xl">
+      <Section photo={activityPhotos.mesaCompartida}>
         <div className="border-l-2 border-anda-rose-dark pl-5 text-xl leading-relaxed">
           <p>
             La Fundación ANDA desea que la paz y el amor de nuestro Señor estén sobre usted y su familia. Hoy
@@ -44,7 +44,7 @@ export function Apadrine() {
         </div>
       </Section>
 
-      <Section title="¿Cómo funciona el proyecto?" tone="paper">
+      <Section title="¿Cómo funciona el proyecto?" tone="paper" backdrop={activityPhotos.almuerzoCorredor}>
         <ol className="grid gap-4 md:grid-cols-3">
           {steps.map(({ title, description }, index) => (
             <li key={title}>
@@ -129,7 +129,7 @@ export function Apadrine() {
         </div>
       </Section>
 
-      <Section title="¿Listo para ser padrino?" intro="Contáctanos y te explicamos todo el proceso para que puedas elegir a tu ahijado." tone="rose">
+      <Section title="¿Listo para ser padrino?" intro="Contáctanos y te explicamos todo el proceso para que puedas elegir a tu ahijado." tone="rose" backdrop={activityPhotos.encuentroCorredor}>
         <div className="mb-4 grid gap-4 md:grid-cols-2">
           <Panel>
             <h3 className="mb-2 text-2xl font-bold text-anda-wine-dark">Por WhatsApp</h3>

@@ -1,6 +1,10 @@
-import { ActionLink, Callout, Hero, Section } from "@/components/content";
+import { ActionLink, Callout, Hero, Photo, Section } from "@/components/content";
 import { whatsapp } from "@/data/contact";
-import { activityPhotos, pageImages } from "@/data/media";
+import { activityPhotos, newsletterPhoto, pageImages } from "@/data/media";
+
+const galleryPhotos = Object.values(activityPhotos).filter(
+  (photo) => photo !== pageImages.actividades && photo !== newsletterPhoto,
+);
 
 const programs = [
   {
@@ -11,7 +15,6 @@ const programs = [
       "80 adultos mayores beneficiados diariamente",
       "Menús nutritivos y equilibrados",
     ],
-    photo: 0,
   },
   {
     title: "Salud",
@@ -22,7 +25,6 @@ const programs = [
       "Brigadas de salud y vacunación",
       "Charlas y capacitaciones en salud",
     ],
-    photo: 1,
   },
   {
     title: "Educación",
@@ -32,7 +34,6 @@ const programs = [
       "Evangelización: todos los martes y el último domingo del mes",
       "Sala de lectura (biblioteca)",
     ],
-    photo: 2,
   },
   {
     title: "Recreación y Deportes",
@@ -44,7 +45,6 @@ const programs = [
       "Salidas de campo al exterior",
       "Ejercicios físicos guiados",
     ],
-    photo: 5,
   },
   {
     title: "Ocio Productivo",
@@ -54,7 +54,6 @@ const programs = [
       "Confección de tapetes y bajillas",
       "Elaboración de artesanías",
     ],
-    photo: 6,
   },
 ];
 
@@ -77,9 +76,8 @@ export function Actividades() {
 
       <Section title="Nuestros Programas" tone="paper">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {programs.map(({ title, description, items, photo }) => (
+          {programs.map(({ title, description, items }) => (
             <article className="overflow-hidden rounded-2xl border border-anda-border bg-white shadow-sm" key={title}>
-              <img alt={activityPhotos[photo].alt} className="aspect-video w-full object-cover" loading="lazy" src={activityPhotos[photo].src} />
               <div className="prose-copy p-5 sm:p-6">
                 <h3 className="text-2xl font-bold text-anda-wine-dark">{title}</h3>
                 <p>{description}</p>
@@ -92,8 +90,13 @@ export function Actividades() {
 
       <Section title="Momentos de nuestra Fundación" intro="Imágenes que cuentan nuestra historia mejor que cualquier palabra.">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-          {activityPhotos.map(({ alt, src }) => (
-            <img key={src} alt={alt} className="aspect-[4/3] w-full rounded-xl object-cover" loading="lazy" src={src} />
+          {galleryPhotos.map((photo) => (
+            <Photo
+              key={photo.src}
+              className="aspect-[4/3] w-full rounded-xl object-cover object-[center_45%]"
+              image={photo}
+              sizes="(min-width: 72rem) 352px, (min-width: 40rem) 31vw, 46vw"
+            />
           ))}
         </div>
       </Section>

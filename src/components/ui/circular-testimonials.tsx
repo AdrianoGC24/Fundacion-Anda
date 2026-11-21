@@ -9,6 +9,7 @@ export type Testimonial = {
   name: string;
   designation: string;
   src: string;
+  srcSet?: string;
   alt?: string;
 };
 
@@ -104,7 +105,7 @@ function TestimonialsCarousel({
       <div
         className="relative mx-auto aspect-[5/4] w-full max-w-[28rem] [perspective:1000px]"
       >
-        {testimonials.map(({ src, alt }, cardIndex) => {
+        {testimonials.map(({ src, srcSet, alt }, cardIndex) => {
           const position = cardPosition(cardIndex, activeIndex, count);
           const visible = position !== 2;
           const front = position === 0;
@@ -126,7 +127,9 @@ function TestimonialsCarousel({
               draggable={false}
               initial={false}
               loading="lazy"
+              sizes="(min-width: 32rem) 314px, 65vw"
               src={src}
+              srcSet={srcSet}
               style={{ zIndex: front ? 3 : visible ? 2 : 1 }}
               transition={reducedMotion ? { duration: 0 } : cardTransition}
             />

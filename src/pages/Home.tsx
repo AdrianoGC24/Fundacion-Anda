@@ -1,19 +1,17 @@
 import { BadgeCheck, HandHeart, HeartHandshake, History, Sparkles, UsersRound } from "lucide-react";
-import { Link } from "react-router-dom";
 
 import { ContactDetails } from "@/components/contact-details";
-import { ActionLink, Callout, Hero, More, Panel, Section, textLink } from "@/components/content";
+import { ActionLink, Callout, Hero, More, Panel, Section } from "@/components/content";
 import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import { SupportForm } from "@/components/support-form";
 import { whatsapp } from "@/data/contact";
-import { pageImages } from "@/data/media";
+import { activityPhotos, pageImages } from "@/data/media";
 import { testimonials, testimonialsNotice } from "@/data/testimonials";
 
 const pages = [
   {
     title: "Quiénes Somos",
     description: "Nuestra misión, visión, filosofía y los valores que guían cada acción de la Fundación.",
-    details: "Conoce nuestros objetivos, la filosofía de atención personalizada y humana, y los 7 valores que definen nuestra forma de trabajar: amor, respeto, tolerancia, igualdad, dedicación, solidaridad y generosidad.",
     label: "Ir a la página",
     to: "/quienes-somos",
     icon: UsersRound,
@@ -21,7 +19,6 @@ const pages = [
   {
     title: "Historia",
     description: "Más de 35 años de lucha y dedicación por los adultos mayores de Barranquilla.",
-    details: "Todo comenzó en octubre de 1988, cuando 9 mujeres del barrio La Manga y Ciudad Modesto decidieron organizarse para proteger a los ancianos de su sector. Desde entonces, la Fundación no ha cerrado sus puertas ni un solo día.",
     label: "Ir a la página",
     to: "/historia",
     icon: History,
@@ -29,7 +26,6 @@ const pages = [
   {
     title: "Equipo de Trabajo",
     description: "15 voluntarios diarios que dedican su tiempo y corazón al bienestar de los abuelos.",
-    details: "Contamos con voluntarios en áreas administrativas, directivas y de coordinación de actividades. Además de colaboradores externos que aportan en especie, servicios profesionales y financiamiento.",
     label: "Ir a la página",
     to: "/equipo",
     icon: HandHeart,
@@ -37,7 +33,6 @@ const pages = [
   {
     title: "Actividades",
     description: "Programas de alimentación, salud, educación, recreación y ocio productivo de lunes a viernes.",
-    details: "Los abuelos reciben almuerzos diarios, atención en salud, clases de alfabetización, actividades físicas y talleres de manualidades donde crean tapetes y otros artículos, manteniéndose activos y con propósito.",
     label: "Ir a la página",
     to: "/actividades",
     icon: Sparkles,
@@ -45,7 +40,6 @@ const pages = [
   {
     title: "Apadrine un Anciano",
     description: "Conviértete en padrino o madrina de uno de nuestros abuelos con un aporte mensual desde $50.000.",
-    details: "Tu contribución puede ser en efectivo o en especie. Puedes consignar en la cuenta Colpatria No. 1000226983 a nombre de la Fundación ANDA, o contactarnos directamente. Como padrino, podrás visitar a tu ahijado en eventos especiales.",
     label: "Ir a la página",
     to: "/apadrine",
     icon: HeartHandshake,
@@ -53,7 +47,6 @@ const pages = [
   {
     title: "Certificación",
     description: "Las empresas que nos apoyan pueden acceder a beneficios tributarios según la Ley Colombiana.",
-    details: "La Fundación ANDA está autorizada para certificar donaciones de empresas y compañías, permitiéndoles acceder a descuentos sobre las rentas establecidos por la legislación colombiana vigente.",
     label: "Más información",
     to: "/apadrine#certificacion",
     icon: BadgeCheck,
@@ -74,7 +67,7 @@ export function Home() {
         <ActionLink to="#quienes-somos" variant="outline">Conoce más</ActionLink>
       </Hero>
 
-      <Section title="¿Qué es la Fundación ANDA?" id="quienes-somos" className="max-w-4xl">
+      <Section title="¿Qué es la Fundación ANDA?" id="quienes-somos" photo={activityPhotos.comunidad}>
         <div className="prose-copy">
           <p>
             La <strong>Fundación en Defensa del Anciano "ANDA"</strong> es una entidad sin ánimo de lucro. Es un
@@ -112,7 +105,7 @@ export function Home() {
         </div>
       </Section>
 
-      <Section title="¿Por qué existimos?" tone="paper" className="max-w-4xl">
+      <Section title="¿Por qué existimos?" tone="paper" photo={activityPhotos.mesaCompartida} photoSide="left">
         <div className="prose-copy">
           <p>
             El adulto mayor de nuestro sector vive en una zona marginada de la ciudad, en su mayoría de estrato
@@ -137,25 +130,24 @@ export function Home() {
         </div>
       </Section>
 
-      <Section title="Conoce la Fundación" intro="Descubre todo lo que hacemos por nuestros abuelos y cómo puedes ser parte de esta labor." tone="rose">
+      <Section title="Conoce la Fundación" intro="Descubre todo lo que hacemos por nuestros abuelos y cómo puedes ser parte de esta labor." tone="rose" backdrop={activityPhotos.comensalesCorredor}>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {pages.map(({ title, description, details, to, label, icon: Icon }) => (
+          {pages.map(({ title, description, to, label, icon: Icon }) => (
             <Panel className="flex flex-col" key={title}>
               <span className="mb-4 grid size-11 place-items-center rounded-full bg-anda-rose-pale text-anda-wine">
                 <Icon aria-hidden="true" className="size-5" />
               </span>
               <h3 className="mb-2 text-2xl font-bold text-anda-wine-dark">{title}</h3>
               <p>{description}</p>
-              <More><p>{details}</p></More>
-              <div className="mt-auto pt-3">
-                <Link className={textLink} to={to} aria-label={`${label}: ${title}`}>{label}</Link>
+              <div className="mt-auto pt-5">
+                <ActionLink label={`${label}: ${title}`} to={to}>{label}</ActionLink>
               </div>
             </Panel>
           ))}
         </div>
       </Section>
 
-      <Section id="donar" title="Haz parte de esta misión" intro="Personas y empresas pueden apoyar nuestra labor mediante donaciones, voluntariado o ayudas en especie." className="max-w-4xl">
+      <Section id="donar" title="Haz parte de esta misión" intro="Personas y empresas pueden apoyar nuestra labor mediante donaciones, voluntariado o ayudas en especie." photo={activityPhotos.encuentroCorredor}>
         <SupportForm />
       </Section>
 

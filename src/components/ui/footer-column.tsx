@@ -2,9 +2,9 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
 
-import { container } from "@/components/content";
+import { container, Photo } from "@/components/content";
 import { organization, whatsapp } from "@/data/contact";
-import { activityPhotos, logo } from "@/data/media";
+import { logo, newsletterPhoto } from "@/data/media";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -69,11 +69,10 @@ function Newsletter() {
           </form>
         </div>
         <div className="mx-auto w-full max-w-80 px-4 py-2">
-          <img
-            alt={activityPhotos[6].alt}
+          <Photo
             className="aspect-[16/10] w-full rotate-4 rounded-2xl border-4 border-anda-rose-pale object-cover shadow-xl"
-            loading="lazy"
-            src={activityPhotos[6].src}
+            image={newsletterPhoto}
+            sizes="(min-width: 24rem) 288px, calc(100vw - 4.5rem)"
           />
         </div>
       </div>

@@ -1,9 +1,11 @@
 import { ActionLink, Callout, Hero, Panel, Section } from "@/components/content";
 import { whatsapp } from "@/data/contact";
-import { pageImages } from "@/data/media";
+import { activityPhotos, pageImages } from "@/data/media";
+import type { SitePhoto } from "@/data/media";
 
 type Team = {
   title: string;
+  backdrop?: SitePhoto;
   people: { name?: string; role: string; description: string }[];
 };
 
@@ -37,6 +39,7 @@ const teams: Team[] = [
   },
   {
     title: "Coordinación de Actividades",
+    backdrop: activityPhotos.celebracion,
     people: [
       {
         role: "Docente Voluntario",
@@ -96,8 +99,8 @@ export function Equipo() {
         </p>
       </Section>
 
-      {teams.map(({ title, people }, index) => (
-        <Section key={title} title={title} tone={index % 2 === 0 ? "paper" : "white"}>
+      {teams.map(({ title, people, backdrop }, index) => (
+        <Section key={title} title={title} tone={index % 2 === 0 ? "paper" : "white"} backdrop={backdrop}>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {people.map(({ name, role, description }) => (
               <Panel key={role}>
@@ -110,7 +113,7 @@ export function Equipo() {
         </Section>
       ))}
 
-      <Section title="Colaboradores" intro="Personas y organizaciones que generosamente apoyan nuestra labor." tone="rose">
+      <Section title="Colaboradores" intro="Personas y organizaciones que generosamente apoyan nuestra labor." tone="rose" backdrop={activityPhotos.comensalesCorredor}>
         <div className="grid gap-4 md:grid-cols-2">
           {collaborators.map(({ title, items }) => (
             <Panel key={title}>

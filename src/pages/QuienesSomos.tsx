@@ -2,7 +2,7 @@ import { Feather, Gift, HandHeart, Handshake, Heart, Scale, Star } from "lucide-
 
 import { ActionLink, Callout, Hero, Panel, Section } from "@/components/content";
 import { whatsapp } from "@/data/contact";
-import { pageImages } from "@/data/media";
+import { activityPhotos, pageImages } from "@/data/media";
 
 const values = [
   {
@@ -51,7 +51,7 @@ export function QuienesSomos() {
         image={pageImages.quienesSomos}
       />
 
-      <Section title="Objetivos" className="max-w-4xl">
+      <Section title="Objetivos" photo={activityPhotos.comensalesCorredor}>
         <Panel>
           <h3 className="mb-3 text-2xl font-bold text-anda-wine-dark">Nuestros Objetivos</h3>
           <div className="prose-copy">
@@ -64,7 +64,7 @@ export function QuienesSomos() {
         </Panel>
       </Section>
 
-      <Section tone="paper" title="Misión" className="max-w-4xl">
+      <Section tone="paper" title="Misión" photo={activityPhotos.mesaCompartida} photoSide="left">
         <Panel>
           <h3 className="mb-3 text-2xl font-bold text-anda-wine-dark">Nuestra Misión</h3>
           <div className="prose-copy">
@@ -103,7 +103,7 @@ export function QuienesSomos() {
         </Panel>
       </Section>
 
-      <Section tone="paper" title="Filosofía" className="max-w-4xl">
+      <Section tone="paper" title="Filosofía" photo={activityPhotos.celebracion}>
         <Panel>
           <h3 className="mb-3 text-2xl font-bold text-anda-wine-dark">Nuestra Filosofía</h3>
           <div className="prose-copy">
@@ -117,7 +117,7 @@ export function QuienesSomos() {
         </Panel>
       </Section>
 
-      <Section title="Nuestros Valores" intro="Los principios que guían cada decisión y cada acción de la Fundación." tone="rose">
+      <Section title="Nuestros Valores" intro="Los principios que guían cada decisión y cada acción de la Fundación." tone="rose" backdrop={activityPhotos.almuerzoSalon}>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {values.map(({ title, description, icon: Icon }) => (
             <Panel key={title}>

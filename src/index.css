@@ -138,4 +138,49 @@
   ul.prose-copy {
     @apply list-disc space-y-2 pl-5 marker:text-anda-wine;
   }
+
+  .home-hero {
+    --home-photo-height: clamp(15rem, 57vw, 28rem);
+  }
+
+  .home-hero-photo {
+    @apply pointer-events-none absolute inset-x-0 top-0 -z-20 w-full object-cover;
+    height: var(--home-photo-height);
+    object-position: 61% 65%;
+  }
+
+  .section-backdrop {
+    @apply pointer-events-none absolute inset-0 -z-10 h-full w-full;
+  }
+
+  .home-hero::before,
+  .section-backdrop::after {
+    @apply pointer-events-none absolute inset-0 content-[''];
+  }
+
+  .home-hero::before {
+    z-index: -1;
+    background: linear-gradient(180deg, transparent 4.5rem, rgb(255 248 244 / 95%) 11rem, var(--anda-paper) var(--home-photo-height));
+  }
+
+  .section-backdrop::after {
+    background: linear-gradient(180deg, var(--anda-paper) 0%, rgb(255 248 244 / 76%) 100%);
+  }
+
+  @media (min-width: 40rem) {
+    .home-hero::before {
+      background: linear-gradient(180deg, transparent 5.5rem, rgb(255 248 244 / 95%) 14rem, var(--anda-paper) var(--home-photo-height));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .home-hero-photo {
+      height: 100%;
+      object-position: 61% 48%;
+    }
+
+    .home-hero::before {
+      background: linear-gradient(90deg, var(--anda-paper) 5%, rgb(255 248 244 / 95%) 46%, rgb(255 248 244 / 22%) 75%, rgb(255 248 244 / 8%) 100%);
+    }
+  }
 }

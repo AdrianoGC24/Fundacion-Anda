@@ -3,7 +3,7 @@ import { useId, useState } from "react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-import type { SiteImage } from "@/data/media";
+import type { SitePhoto } from "@/data/media";
 import { cn } from "@/lib/utils";
 
 export const container = "mx-auto w-full max-w-6xl px-5 sm:px-8";
@@ -13,10 +13,12 @@ export function ActionLink({
   to,
   children,
   variant = "primary",
+  label,
 }: {
   to: string;
   children: ReactNode;
   variant?: "primary" | "outline" | "whatsapp" | "light";
+  label?: string;
 }) {
   const classes = cn(
     "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-center text-base font-semibold leading-snug transition-colors",
@@ -29,12 +31,13 @@ export function ActionLink({
   );
 
   if (to.startsWith("/") || to.startsWith("#")) {
-    return <Link className={classes} to={to}>{children}</Link>;
+    return <Link aria-label={label} className={classes} to={to}>{children}</Link>;
   }
 
   const opensNewTab = to.startsWith("https://");
   return (
     <a
+      aria-label={label}
       className={classes}
       href={to}
       target={opensNewTab ? "_blank" : undefined}
@@ -43,6 +46,33 @@ export function ActionLink({
       {variant === "whatsapp" && <MessageCircle aria-hidden="true" size={19} />}
       {children}
     </a>
+  );
+}
+
+export function Photo({
+  image,
+  sizes,
+  className,
+  priority = false,
+  decorative = false,
+}: {
+  image: SitePhoto;
+  sizes: string;
+  className?: string;
+  priority?: boolean;
+  decorative?: boolean;
+}) {
+  return (
+    <img
+      alt={decorative ? "" : image.alt}
+      className={className}
+      decoding={priority ? undefined : "async"}
+      fetchPriority={priority ? "high" : undefined}
+      loading={priority ? "eager" : "lazy"}
+      sizes={sizes}
+      src={image.src}
+      srcSet={image.srcSet}
+    />
   );
 }
 
@@ -56,14 +86,22 @@ export function Hero({
 }: {
   title: string;
   description: string;
-  image: SiteImage;
+  image: SitePhoto;
   eyebrow?: string;
   children?: ReactNode;
   home?: boolean;
 }) {
   return (
-    <section className="border-b border-anda-border bg-anda-paper">
-      <div className={cn(container, "grid items-center gap-8 py-11 sm:py-14 lg:grid-cols-[1fr_1.05fr] lg:gap-12", home && "lg:py-17")}>
+    <section className={cn("relative isolate border-b border-anda-border bg-anda-paper", home && "home-hero")}>
+      {home && (
+        <Photo className="home-hero-photo" image={image} priority sizes="100vw" />
+      )}
+      <div className={cn(
+        container,
+        home
+          ? "relative flex flex-col justify-end pt-44 pb-11 sm:pt-56 sm:pb-14 lg:min-h-[36rem] lg:justify-center lg:py-20"
+          : "grid items-center gap-8 py-11 sm:py-14 lg:grid-cols-[1fr_1.05fr] lg:gap-12",
+      )}>
         <div className="max-w-xl">
           {eyebrow && (
             <p className="mb-4 border-l-2 border-anda-rose-dark pl-3 font-semibold text-anda-wine">
@@ -76,12 +114,14 @@ export function Hero({
           <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground sm:text-xl">{description}</p>
           {children && <div className="mt-7 flex flex-wrap gap-3">{children}</div>}
         </div>
-        <img
-          alt={image.alt}
-          className={cn("h-full max-h-96 min-h-48 w-full rounded-[1.75rem] object-cover shadow-md", home ? "aspect-[4/3] lg:max-h-120" : "aspect-[16/9]")}
-          fetchPriority={home ? "high" : "auto"}
-          src={image.src}
-        />
+        {!home && (
+          <Photo
+            className="aspect-video max-h-96 w-full rounded-[1.75rem] object-cover shadow-md"
+            image={image}
+            priority
+            sizes="(min-width: 72rem) 520px, (min-width: 64rem) 46vw, (min-width: 40rem) calc(100vw - 4rem), calc(100vw - 2.5rem)"
+          />
+        )}
       </div>
     </section>
   );
@@ -94,6 +134,9 @@ export function Section({
   tone = "white",
   children,
   className,
+  photo,
+  photoSide = "right",
+  backdrop,
 }: {
   id?: string;
   title?: string;
@@ -101,24 +144,62 @@ export function Section({
   tone?: "white" | "rose" | "paper";
   children: ReactNode;
   className?: string;
+  photo?: SitePhoto;
+  photoSide?: "left" | "right";
+  backdrop?: SitePhoto;
 }) {
   const headingId = useId();
+  const heading = title && (
+    <header className="mb-7 max-w-3xl sm:mb-9">
+      <h2 id={headingId} className="text-3xl font-bold text-anda-wine-dark sm:text-4xl">{title}</h2>
+      {intro && <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{intro}</p>}
+    </header>
+  );
 
   return (
     <section
       id={id}
       tabIndex={id ? -1 : undefined}
       aria-labelledby={title ? headingId : undefined}
-      className={cn("py-11 sm:py-15", { white: "bg-white", rose: "bg-anda-rose-pale", paper: "bg-anda-paper" }[tone])}
+      className={cn(
+        "py-11 sm:py-15",
+        { white: "bg-white", rose: "bg-anda-rose-pale", paper: "bg-anda-paper" }[tone],
+        backdrop && "relative isolate",
+      )}
     >
-      <div className={cn(container, className)}>
-        {title && (
-          <header className="mb-7 max-w-3xl sm:mb-9">
-            <h2 id={headingId} className="text-3xl font-bold text-anda-wine-dark sm:text-4xl">{title}</h2>
-            {intro && <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{intro}</p>}
-          </header>
+      {backdrop && (
+        <div className="section-backdrop">
+          <Photo className="h-full w-full object-cover" decorative image={backdrop} sizes="100vw" />
+        </div>
+      )}
+      <div className={cn(
+        container,
+        className,
+        photo && "grid items-center gap-6 md:gap-10",
+        photo && (photoSide === "left"
+          ? "md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]"
+          : "md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]"),
+      )}>
+        {photo ? (
+          <>
+            <div className="min-w-0">
+              {heading}
+              {children}
+            </div>
+            <div className={cn("relative aspect-[4/3] overflow-hidden rounded-3xl shadow-sm md:aspect-auto md:min-h-72 md:self-stretch", photoSide === "left" && "md:order-first")}>
+              <Photo
+                className="absolute inset-0 h-full w-full object-cover object-[center_45%]"
+                image={photo}
+                sizes="(min-width: 72rem) 475px, (min-width: 48rem) 43vw, (min-width: 40rem) calc(100vw - 4rem), calc(100vw - 2.5rem)"
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            {heading}
+            {children}
+          </>
         )}
-        {children}
       </div>
     </section>
   );
