@@ -18,6 +18,16 @@ const teams: Team[] = [
         role: "Representante Legal",
         description: "Fundadora y líder de la Fundación ANDA desde sus inicios en 1988.",
       },
+      {
+        name: "Elsy María Cera Escobar",
+        role: "Secretaria & auxiliar contable",
+        description: "Presente desde los inicios de la fundación hasta hoy",
+      },
+      {
+        name: "Carmen Pinilla",
+        role: "Vicepresidenta",
+        description: "Presente desde el 2000 hasta hoy",
+      },
     ],
   },
   {
@@ -28,7 +38,8 @@ const teams: Team[] = [
         description: "Profesional en contaduría que apoya la gestión financiera de la Fundación.",
       },
       {
-        role: "Comunicación Social",
+        name: "Carmen Pinilla",
+        role: "Comunicación social",
         description: "Apoya la comunicación y visibilidad de la Fundación en medios y redes.",
       },
       {

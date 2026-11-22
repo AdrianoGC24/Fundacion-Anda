@@ -10,7 +10,7 @@ export const organization = {
   ],
   email: "fundacionanda@hotmail.com",
   address: "Calle 99D #14A-84, Barrio La Paz, Barranquilla",
-  hours: "Lunes a viernes, de la mañana hasta las 2:00 PM",
+  hours: "Lunes a viernes, de 06:30 AM hasta las 12:00 M",
 } as const;
 
 export const sponsorshipAccount = {

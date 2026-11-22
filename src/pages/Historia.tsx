@@ -95,8 +95,8 @@ const milestones = [
       <p>
         La razón social cambia a <strong>Fundación en Defensa del Anciano Hogar Centro de Vida
         "ANDA"</strong>. El programa de Almuerzos Calientes finaliza a nivel nacional. El Gobierno lo
-        reemplaza con un subsidio de $75.000 mensuales, pero la Fundación continúa ofreciendo almuerzos para
-        70 beneficiarios con sus propios recursos.
+        reemplaza con un subsidio de $75.000 COP mensuales a cada anciano para su uso personal, pero la
+        Fundación continúa ofreciendo almuerzos para 70 beneficiarios con sus propios recursos.
       </p>
     ),
   },
